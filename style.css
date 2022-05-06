@@ -1,0 +1,146 @@
+*{
+    box-sizing: border-box;
+}
+#paint, #flipcards{
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#palette{
+    min-width: 300px;
+    width: 300px;
+    margin-right: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.paletteColor{
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+}
+#red{
+    background-color: red;
+}
+#orange{
+    background-color: orange;
+}
+#yellow{
+    background-color: yellow;
+}
+#green{
+    background-color: green;
+}
+#blue{
+    background-color: blue;
+}
+#purple{
+    background-color: purple;
+}
+#black{
+    background-color: black;
+}
+#brown{
+    background-color: brown;
+}
+#white{
+    background-color: white;
+}
+
+.canvas{
+    min-width: 350px;
+    width: 350px;
+    /* height: 250px; */
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.cell{
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+}
+
+
+:root{
+    --cardwidth: 79px;
+    --cardheight: 123px;
+}
+.card{
+    width: var(--cardwidth);
+    height: var(--cardheight);
+    position: relative;
+    perspective: 200px;
+}
+.front, .back{
+    transition: 1s;
+    width: 100%;
+    height: 100%;
+    background: url('img/card_deck.png') no-repeat;
+    position: absolute;
+    left: 0;
+    top: 0;
+    backface-visibility: hidden;
+}
+.back{
+    background-position: calc(var(--cardwidth)*(-2)) 
+                            calc(var(--cardheight)*(-4));
+    transform: rotateY(180deg);
+}
+.card.flipped .front{transform: rotateY(180deg);}
+.card.flipped .back{transform: rotateY(360deg);}
+
+
+.cardClubs{
+    background-position-y: 0px;
+}
+.cardDiamonds{
+    background-position-y: calc(var(--cardheight)*(-1));
+}
+.cardHearts{
+    background-position-y: calc(var(--cardheight)*(-2));
+}
+.cardSpades{
+    background-position-y: calc(var(--cardheight)*(-3));
+}
+
+.cardA{
+    background-position-x: 0px;
+}
+.card2{
+    background-position-x: calc(var(--cardwidth)*(-1));
+}
+.card3{
+    background-position-x: calc(var(--cardwidth)*(-2));
+}
+.card4{
+    background-position-x: calc(var(--cardwidth)*(-3));
+}
+.card5{
+    background-position-x: calc(var(--cardwidth)*(-4));
+}
+.card6{
+    background-position-x: calc(var(--cardwidth)*(-5));
+}
+.card7{
+    background-position-x: calc(var(--cardwidth)*(-6));
+}
+.card8{
+    background-position-x: calc(var(--cardwidth)*(-7));
+}
+.card9{
+    background-position-x: calc(var(--cardwidth)*(-8));
+}
+.card10{
+    background-position-x: calc(var(--cardwidth)*(-9));
+}
+.cardJ{
+    background-position-x: calc(var(--cardwidth)*(-10));
+}
+.cardQ{
+    background-position-x: calc(var(--cardwidth)*(-11));
+}
+.cardK{
+    background-position-x: calc(var(--cardwidth)*(-12));
+}
