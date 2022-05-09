@@ -5,17 +5,21 @@ let canvas = document.querySelector('.canvas');
 let currentColor = 'white';
 
 palette.addEventListener('click', function(e){
-    currentColor = getComputedStyle(e.target).backgroundColor;
-    for(let child of this.children){
-        if(child.hasAttribute('style'))
-            child.removeAttribute('style')
+    if(e.target.tagName === 'TD'){
+        currentColor = getComputedStyle(e.target).backgroundColor;
+        for(let row of this.rows){
+            for (let cell of row.children) {
+                if(cell.classList.contains('sellected'))
+                    cell.classList.remove('sellected');
+            }
+        }
+        e.target.classList.add('sellected');
     }
-    e.target.style.borderColor = 'aqua';
-    
 });
 
 canvas.addEventListener('click', function(e){
-    e.target.style.backgroundColor = currentColor;
+    if(e.target.tagName === 'TD')
+        e.target.style.backgroundColor = currentColor;
 });
 
 //--------------------------------------------------------------- Cards
